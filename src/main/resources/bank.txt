@@ -1,0 +1,88 @@
+--create person table
+
+CREATE TABLE PERSON (
+Personal_code VARCHAR PRIMARY KEY,
+Name VARCHAR NOT NULL,
+LastName VARCHAR NOT NULL 
+);
+
+--create bank table
+
+CREATE TABLE BANK (
+Id INT PRIMARY KEY,
+Name VARCHAR NOT NULL
+);
+
+-- create account table
+
+CREATE TABLE ACCOUNT(
+Id INT PRIMARY KEY,
+Personal_code VARCHAR REFERENCES PERSON(Personal_code),
+Bank_id INT REFERENCES BANK(Id)
+);
+
+--create card table
+
+CREATE TABLE CARD (
+Id INT PRIMARY KEY,
+Account_id INT REFERENCES ACCOUNT(ID),
+Type VARCHAR CHECK (Type ='Credit' OR Type ='Debit'),
+Balance DECIMAL(7,2) NOT NULL,
+Debt DECIMAL(7,2) Default 0.00
+);
+-- create transaction table
+
+CREATE TABLE TRANSACTION (
+Id INT PRIMARY KEY,
+Card_id INT REFERENCES CARD(ID),
+Date DATE NOT NULL,
+Amount DECIMAL(7,2) NOT NULL
+);
+
+-- insert data into person
+
+INSERT INTO PERSON (Personal_code,name,lastName)
+Values (59085284952,'Tomas','Drove');
+
+INSERT INTO PERSON (Personal_code,name,lastName)
+Values (59085284444,'Micheal','Scoot');
+
+INSERT INTO PERSON (Personal_code,name,lastName)
+Values (59085298754,'Jim','Halper');
+
+
+-- INSERT DATA INTO BANK
+
+INSERT INTO BANK(ID,NAME)
+VALUES (1,'SwedBank');
+
+INSERT INTO BANK(ID,NAME)
+VALUES (2,'SEB');
+
+INSERT INTO BANK(ID,NAME)
+VALUES (3,'Medicinos');
+
+-- insert data into account
+
+INSERT INTO ACCOUNT(ID,PERSONAL_CODE,BANK_ID)
+Values (1,59085284952,1);
+
+INSERT INTO ACCOUNT(ID,PERSONAL_CODE,BANK_ID)
+Values (2,59085284444,2);
+
+INSERT INTO ACCOUNT(ID,PERSONAL_CODE,BANK_ID)
+Values (3,59085298754,3);
+
+-- insert data into card
+
+INSERT INTO CARD(ID,ACCOUNT_ID,TYPE,BALANCE,DEBT)
+VALUES(1,1,'Debit',5123.42,800);
+
+INSERT INTO CARD(ID,ACCOUNT_ID,TYPE,BALANCE,DEBT)
+VALUES(2,2,'Credit',420.69,0);
+
+INSERT INTO CARD(ID,ACCOUNT_ID,TYPE,BALANCE,DEBT)
+VALUES(3,3,'Debit',5123.42,100);
+
+
+
