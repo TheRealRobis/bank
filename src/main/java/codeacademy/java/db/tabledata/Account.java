@@ -5,6 +5,18 @@ public class Account {
     private String personalCode;
     private Integer bankId;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setPersonalCode(String personalCode) {
+        this.personalCode = personalCode;
+    }
+
+    public void setBankId(Integer bankId) {
+        this.bankId = bankId;
+    }
+
     public Integer getId() {
         return id;
     }

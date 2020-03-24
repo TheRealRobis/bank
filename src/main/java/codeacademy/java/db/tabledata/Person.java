@@ -22,4 +22,16 @@ public class Person {
         this.name = name;
         this.lastName = lastName;
     }
+
+    public void setPersonalCode(String personalCode) {
+        this.personalCode = personalCode;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }

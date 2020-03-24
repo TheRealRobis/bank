@@ -18,7 +18,7 @@ public class DbManager {
                 ""
         );
     }
-    public List<Person> getAllProjects() {
+    public List<Person> getAllPersons() {
 
         try {
             Connection connection = createConnection();
@@ -47,6 +47,39 @@ public class DbManager {
             e.printStackTrace();
         }
         return new ArrayList<Person>();
+
+    }
+    public List<Account> getAllAccounts() {
+
+        try {
+            Connection connection = createConnection();
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM ACCOUNT");
+
+            ResultSet result = statement.executeQuery();
+
+            List<Account> projectList = new ArrayList<Account>();
+
+            while (result.next()) {
+                Integer id = result.getInt("id");
+                String personalCode = result.getString("personal_code");
+                Integer bankId = result.getInt("bank_id");
+
+
+                Account project = new Account(
+                        id,
+                        personalCode,
+                        bankId);
+
+                projectList.add(project);
+            }
+            return projectList;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<Account>();
 
     }
 }

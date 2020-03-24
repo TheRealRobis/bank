@@ -7,6 +7,23 @@ public class Transaction {
     private Integer id;
     private Integer cardId;
     private Date date;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setCardId(Integer cardId) {
+        this.cardId = cardId;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setAmount(Currency amount) {
+        this.amount = amount;
+    }
+
     private Currency amount;
 
     public Integer getId() {

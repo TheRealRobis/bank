@@ -9,6 +9,26 @@ public class Card {
     private Currency balance;
     private Currency debt;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setBalance(Currency balance) {
+        this.balance = balance;
+    }
+
+    public void setDebt(Currency debt) {
+        this.debt = debt;
+    }
+
     public Integer getId() {
         return id;
     }
