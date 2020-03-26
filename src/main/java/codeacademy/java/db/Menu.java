@@ -27,29 +27,29 @@ public class Menu {
             case 1: // login with personal_code
                 System.out.println("Please input personal code to login: ");
                 login(bank.getStringInput());
-                afterLoginActionManu();
                 break;
             case 2: // register a new user
                 System.out.println("REGISTER:");
 //                registerNewUserMenu();
+                break;
         }
     }
 
     private void login(String personalCode) {
         boolean login = false;
+        String validPersonalCode = null;
         List<Account> accountList = bank.getAllAccounts();
-
-        while(!login){
-            for (Account a:
-                 accountList) {
-                if(a.getPersonalCode().equals(personalCode)){
-                }
+        for (Account a:
+             accountList) {
+            if(a.getPersonalCode().equals(personalCode)){
+                System.out.println("Login Successful");
+                afterLoginActionMenu();
+                performActionAfterLoginActionMenu(bank.getIntInput(), personalCode);
             }
         }
     }
+    private void afterLoginActionMenu() {
 
-
-    private void afterLoginActionManu() {
         System.out.println("1) View accounts and balances");
         System.out.println("2) Transaction history");
         System.out.println("3) Put money in");
@@ -58,6 +58,29 @@ public class Menu {
         System.out.println("6) Export all transaction history into fail");
         System.out.print("Enter option: ");
 
+    }
+
+    public void performActionAfterLoginActionMenu(int choise, String personalCode){
+        switch (choise){
+            case 1:
+                bank.viewAccountsAndBalances(personalCode);
+                break;
+            case 2:
+//                viewTransactionHistory(personalCode);
+                break;
+            case 3:
+//                putMoneyIn(personalCode);
+                break;
+            case 4:
+//                takeMoneyOut(personalCode);
+                break;
+            case 5:
+//                makeTransaction(personalCode);
+                break;
+            case 6:
+//                exportAllTransactionHistoryIntoFile(personalCode);
+                break;
+        }
     }
 
     private void printMenu() {

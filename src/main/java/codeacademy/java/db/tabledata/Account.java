@@ -3,7 +3,6 @@ package codeacademy.java.db.tabledata;
 public class Account {
     private Integer id;
     private String personalCode;
-    private Integer bankId;
 
     public void setId(Integer id) {
         this.id = id;
@@ -13,9 +12,6 @@ public class Account {
         this.personalCode = personalCode;
     }
 
-    public void setBankId(Integer bankId) {
-        this.bankId = bankId;
-    }
 
     public Integer getId() {
         return id;
@@ -25,13 +21,10 @@ public class Account {
         return personalCode;
     }
 
-    public Integer getBankId() {
-        return bankId;
-    }
 
-    public Account(Integer id, String personalCode, Integer bankId) {
+    public Account(Integer id, String personalCode) {
         this.id = id;
         this.personalCode = personalCode;
-        this.bankId = bankId;
+
     }
 }

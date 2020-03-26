@@ -6,8 +6,8 @@ public class Card {
     private Integer id;
     private Integer accountId;
     private String type;
-    private Currency balance;
-    private Currency debt;
+    private Double balance;
+    private Double debt;
 
     public void setId(Integer id) {
         this.id = id;
@@ -21,13 +21,6 @@ public class Card {
         this.type = type;
     }
 
-    public void setBalance(Currency balance) {
-        this.balance = balance;
-    }
-
-    public void setDebt(Currency debt) {
-        this.debt = debt;
-    }
 
     public Integer getId() {
         return id;
@@ -41,15 +34,23 @@ public class Card {
         return type;
     }
 
-    public Currency getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public Currency getDebt() {
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public Double getDebt() {
         return debt;
     }
 
-    public Card(Integer id, Integer accountId, String type, Currency balance, Currency debt) {
+    public void setDebt(Double debt) {
+        this.debt = debt;
+    }
+
+    public Card(Integer id, Integer accountId, String type, Double balance, Double debt) {
         this.id = id;
         this.accountId = accountId;
         this.type = type;

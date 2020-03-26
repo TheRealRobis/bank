@@ -28,4 +28,8 @@ public class Bank {
     public List<Account> getAllAccounts() {
         return dbManager.getAllAccounts();
     }
+
+    public void viewAccountsAndBalances(String personalCode) {
+        dbManager.getAllAccountsAndBalances(personalCode);
+    }
 }
